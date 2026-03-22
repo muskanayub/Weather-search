@@ -1,0 +1,62 @@
+body{
+font-family:Segoe UI;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-size:cover;
+background-position:center;
+}
+
+.container{
+background:rgba(255,255,255,0.9);
+padding:40px;
+border-radius:15px;
+text-align:center;
+width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+input{
+padding:12px;
+width:70%;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 20px;
+margin-top:10px;
+border:none;
+background:#4facfe;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2f80ed;
+}
+
+/* SKY BACKGROUNDS */
+
+.clear{
+background-image:url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg");
+}
+
+.clouds{
+background-image:url("https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg");
+}
+
+.rain{
+background-image:url("https://images.pexels.com/photos/110874/pexels-photo-110874.jpeg");
+}
+
+.snow{
+background-image:url("https://images.pexels.com/photos/688660/pexels-photo-688660.jpeg");
+}
+
+.sky{
+background-image:url("https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg");
+}
