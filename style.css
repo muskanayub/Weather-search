@@ -1,62 +1,220 @@
-body{
-font-family:Segoe UI;
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background-size:cover;
-background-position:center;
+background:linear-gradient(135deg,#56ccf2,#2f80ed);
+overflow:hidden;
 }
 
+/* CONTAINER */
+
 .container{
-background:rgba(255,255,255,0.9);
-padding:40px;
-border-radius:15px;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(15px);
+padding:35px;
+border-radius:20px;
+width:450px;
+max-width:90%;
 text-align:center;
-width:420px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+border:1px solid rgba(255,255,255,0.3);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* SEARCH */
+
+.searchBox{
+display:flex;
+gap:10px;
+margin-top:20px;
 }
 
 input{
+flex:1;
 padding:12px;
-width:70%;
 border-radius:8px;
-border:1px solid #ccc;
+border:none;
 }
 
 button{
-padding:12px 20px;
-margin-top:10px;
+padding:12px 16px;
 border:none;
-background:#4facfe;
+background:#3a7bd5;
 color:white;
 border-radius:8px;
 cursor:pointer;
 }
 
 button:hover{
-background:#2f80ed;
+background:#2a5db0;
 }
 
-/* SKY BACKGROUNDS */
+/* WEATHER GRID */
 
-.clear{
-background-image:url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg");
+.weatherGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:15px;
 }
 
-.clouds{
-background-image:url("https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg");
+/* WEATHER CARDS */
+
+.card{
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-.rain{
-background-image:url("https://images.pexels.com/photos/110874/pexels-photo-110874.jpeg");
+/* WEATHER ICON */
+
+#weatherIcon{
+width:90px;
+margin:10px 0;
+animation:floatIcon 3s ease-in-out infinite;
 }
 
-.snow{
-background-image:url("https://images.pexels.com/photos/688660/pexels-photo-688660.jpeg");
+@keyframes floatIcon{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
 }
 
-.sky{
-background-image:url("https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg");
+/* FORECAST */
+
+.forecast{
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+}
+
+.forecastCard{
+background:#f3f6ff;
+padding:10px;
+border-radius:10px;
+width:70px;
+}
+
+/* LOADER */
+
+.loader{
+border:5px solid #eee;
+border-top:5px solid #3a7bd5;
+border-radius:50%;
+width:40px;
+height:40px;
+margin:15px auto;
+display:none;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* CLOUD ANIMATION */
+
+.cloud{
+position:absolute;
+width:200px;
+height:60px;
+background:white;
+border-radius:50px;
+opacity:0.7;
+animation:float 40s linear infinite;
+}
+
+.cloud:before,
+.cloud:after{
+content:'';
+position:absolute;
+background:white;
+width:80px;
+height:80px;
+top:-30px;
+left:20px;
+border-radius:50%;
+}
+
+.cloud1{top:80px;}
+.cloud2{top:200px;animation-duration:60s;}
+
+@keyframes float{
+0%{transform:translateX(-300px);}
+100%{transform:translateX(120vw);}
+}
+
+/* RAIN */
+
+.raindrop{
+position:absolute;
+width:2px;
+height:20px;
+background:white;
+animation:rain 1s linear infinite;
+}
+
+@keyframes rain{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(100vh);}
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.container{
+width:95%;
+}
+
+/* FORECAST SECTION */
+
+.forecast{
+display:flex;
+justify-content:center;
+gap:14px;
+margin-top:18px;
+flex-wrap:wrap;
+}
+
+/* FORECAST BOX */
+
+.forecastCard{
+background:#f3f6ff;
+padding:14px;
+border-radius:12px;
+width:95px;            /* wider box */
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+/* HOVER EFFECT */
+
+.forecastCard:hover{
+transform:translateY(-4px);
+}
+
+/* DATE TEXT */
+
+.forecastCard p{
+font-size:13px;
+margin-bottom:6px;
+}
+
+/* WEATHER ICON */
+
+.forecastCard img{
+width:40px;
+margin:6px 0;
+}
+
 }
